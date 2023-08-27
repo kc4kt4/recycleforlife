@@ -5,7 +5,7 @@ create table "user"
     "login"            text        not null,
     "encoded_password" text        not null,
     "name"             text        not null,
-    "age"              int         not null,
+    "born_at"          timestamp without time zone,
     "sex"              text        not null
 );
 

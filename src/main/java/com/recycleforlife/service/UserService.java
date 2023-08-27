@@ -69,7 +69,7 @@ public class UserService {
 
         final User forUpdate = user.setSex(updateUserRequest.getSex())
                 .setName(updateUserRequest.getName())
-                .setAge(updateUserRequest.getAge());
+                .setBornAt(updateUserRequest.getBornAt());
         final User updated = userRepository.save(forUpdate);
         log.info("user updated: {}", updated);
 
@@ -93,7 +93,7 @@ public class UserService {
                 .setLogin(request.getLogin())
                 .setName(request.getName())
                 .setEncodedPassword(passwordEncoder.encode(request.getPassword()))
-                .setAge(request.getAge())
+                .setBornAt(request.getBornAt())
                 .setSex(request.getSex());
         final User saved = userRepository.save(user);
         log.info("user saved - {}", saved);

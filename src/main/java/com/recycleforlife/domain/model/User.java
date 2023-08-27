@@ -4,6 +4,7 @@ import com.recycleforlife.domain.dto.Sex;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -13,6 +14,6 @@ public class User {
     private String login;
     private String encodedPassword;
     private String name;
-    private Integer age;
+    private LocalDateTime bornAt;
     private Sex sex;
 }

@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -17,7 +18,7 @@ public class CreateUserRequest {
     @NotBlank
     private String name;
     @NotNull
-    private Integer age;
+    private LocalDateTime bornAt;
     @NotNull
     private Sex sex;
 }
