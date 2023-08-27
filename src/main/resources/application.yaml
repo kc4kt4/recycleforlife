@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: recycleforlife
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 10
+      pool-name: ${spring.application.name}-pool
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase-changelog.yaml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: com.saptain.recycleforlife.domain.repository.typehandler
+management:
+  server:
+    port: 9091
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, info, metrics, livenesstate, openapi, swaggerui, liveness, readiness
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+logging:
+  level:
+    com.hazelcast: info
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+    enabled: true
+server:
+  port: 8080
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: jdbc:postgresql://db:5432/test
+    username: test
+    password: test
+
