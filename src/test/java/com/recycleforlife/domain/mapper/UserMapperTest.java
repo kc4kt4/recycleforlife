@@ -7,10 +7,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
     final UserMapper mapper = Mappers.getMapper(UserMapper.class);
@@ -21,12 +19,12 @@ class UserMapperTest {
                 .setSex(Sex.MALE)
                 .setUuid(UUID.randomUUID())
                 .setName("b")
-                .setBornAt(LocalDateTime.of(2020, 10, 10, 10, 10))
+                .setDateOfBirth(LocalDate.of(2020, 10, 10))
                 .setLogin("g")
                 .setId(122L)
                 .setEncodedPassword("aa");
 
-        //test
+        // test
         final UserDto result = mapper.toDto(user);
 
         Assertions.assertThat(result)

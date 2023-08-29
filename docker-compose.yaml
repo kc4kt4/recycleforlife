@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  p_v8:
+  p_v9:
     image: postgres
     container_name: db
     restart: always
@@ -15,8 +15,8 @@ services:
 #      interval: 1s
 
 
-  a_v8:
-    image: kc4kt4id/recycleforlife:1.1.7
+  a_v9:
+    image: kc4kt4id/recycleforlife:1.1.8
     container_name: app
     environment:
       - "SPRING_PROFILES_ACTIVE=docker"
@@ -31,5 +31,5 @@ services:
 ########
 # docker build -t recycleforlife .
 # docker images
-# docker tag 6b5f381ec89a kc4kt4id/recycleforlife:1.1.7
-# docker push kc4kt4id/recycleforlife:1.1.7
+# docker tag 616c854bca63 kc4kt4id/recycleforlife:1.1.8
+# docker push kc4kt4id/recycleforlife:1.1.8
