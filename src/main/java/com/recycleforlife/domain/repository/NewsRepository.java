@@ -17,7 +17,7 @@ public interface NewsRepository extends CrudRepository<News, Long> {
     @Query(
             """
             select * from news n
-            where n.date >= :from and n.date < :to
+            where n.date >= :from and n.date <= :to
             order by date
             """
     )
