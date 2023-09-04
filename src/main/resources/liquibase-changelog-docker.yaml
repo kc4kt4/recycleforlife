@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - logicalFilePath: liquibase-changelog.yaml
+  - includeAll:
+      path: scripts
+      errorIfMissingOrEmpty: true
+  - includeAll:
+      path: scripts-docker
+      errorIfMissingOrEmpty: true

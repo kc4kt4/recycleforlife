@@ -57,4 +57,16 @@ spring:
     url: jdbc:postgresql://db:5432/test
     username: test
     password: test
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase-changelog-docker.yaml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase-changelog.yaml
 
