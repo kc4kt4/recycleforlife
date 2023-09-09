@@ -35,12 +35,16 @@ create table "fraction"
 
 create table "receiving_point"
 (
-    "id"          bigserial primary key,
-    "uuid"        uuid unique not null,
-    "name"        text        not null,
-    "description" text,
-    "latitude"    numeric     not null,
-    "longitude"   numeric     not null
+    "id"            bigserial primary key,
+    "uuid"          uuid unique not null,
+    "name"          text        not null,
+    "description"   text,
+    "latitude"      numeric     not null,
+    "longitude"     numeric     not null,
+    "subtitle"      text,
+    "email"         text,
+    "msisdn"        text,
+    "working_hours" jsonb       not null
 );
 
 create table "fraction_receiving_point"

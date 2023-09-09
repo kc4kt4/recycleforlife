@@ -8,9 +8,9 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-// @ActiveProfiles("test")
-// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ExtendWith(SpringExtension.class)
+// @ActiveProfiles({"test", "docker"})
+@ActiveProfiles({"test"})
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AppTest {
 
     @DynamicPropertySource
@@ -20,9 +20,11 @@ class AppTest {
 
     @Test
     void context() {
-        System.out.println(PostgresTestContainer.POSTGRES_CONTAINER.getJdbcUrl());
-        System.out.println(PostgresTestContainer.POSTGRES_CONTAINER.getUsername());
-        System.out.println(PostgresTestContainer.POSTGRES_CONTAINER.getPassword());
-        System.out.println("");
+        // System.out.println(PostgresTestContainer.POSTGRES_CONTAINER.getJdbcUrl());
+        // System.out.println(PostgresTestContainer.POSTGRES_CONTAINER.getUsername());
+        // System.out.println(PostgresTestContainer.POSTGRES_CONTAINER.getPassword());
+        // System.out.println("");
+
+        // while (true) {}
     }
 }

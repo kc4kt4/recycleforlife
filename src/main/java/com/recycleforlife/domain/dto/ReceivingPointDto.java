@@ -1,7 +1,6 @@
 package com.recycleforlife.domain.dto;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,4 +14,8 @@ public class ReceivingPointDto {
     private BigDecimal latitude;
     private BigDecimal longitude;
     private List<UUID> fractionUuids;
+    private String subtitle;
+    private String email;
+    private String msisdn;
+    private List<WorkingHour> workingHours;
 }

@@ -14,4 +14,8 @@ public class ReceivingPoint {
     private String description;
     private BigDecimal latitude;
     private BigDecimal longitude;
+    private String subtitle;
+    private String email;
+    private String msisdn;
+    private WorkingHours workingHours;
 }

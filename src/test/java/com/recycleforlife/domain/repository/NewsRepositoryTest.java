@@ -1,5 +1,7 @@
 package com.recycleforlife.domain.repository;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.recycleforlife.PostgresTestContainer;
 import com.recycleforlife.domain.model.News;
 import org.assertj.core.api.Assertions;
@@ -9,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -98,5 +102,15 @@ class NewsRepositoryTest extends AbstractRepositoryTest {
                 .hasSize(2)
                 .map(News::getId)
                 .containsExactly(1L, 2L);
+    }
+
+    @TestConfiguration
+    static class Config {
+
+        @Bean
+        ObjectMapper objectMapper() {
+            return new ObjectMapper()
+                    .registerModule(new JavaTimeModule());
+        }
     }
 }
