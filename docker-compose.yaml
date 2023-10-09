@@ -31,5 +31,5 @@ services:
 ########
 # docker build -t recycleforlife .
 # docker images
-# docker tag 0f8c84f4656a kc4kt4id/recycleforlife:1.1.13
+# docker tag 73df996a6855 kc4kt4id/recycleforlife:1.1.13
 # docker push kc4kt4id/recycleforlife:1.1.13
