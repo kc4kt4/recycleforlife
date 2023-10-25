@@ -1,5 +1,6 @@
 package com.recycleforlife.domain.model;
 
+import com.recycleforlife.domain.dto.NewsType;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -16,4 +17,6 @@ public class News {
     private String title;
     private String imageBase64;
     private LocalDate date;
+    private String city;
+    private NewsType type;
 }

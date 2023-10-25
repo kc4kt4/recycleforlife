@@ -21,4 +21,8 @@ public class SimpleNewsDto {
     private String imageBase64;
     @NotNull
     private LocalDate date;
+    @NotBlank
+    private String city;
+    @NotBlank
+    private NewsType type;
 }

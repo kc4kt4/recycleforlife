@@ -2,6 +2,7 @@ package com.recycleforlife.controller;
 
 import com.recycleforlife.domain.dto.FindNewsResponse;
 import com.recycleforlife.domain.dto.NewsDto;
+import com.recycleforlife.domain.dto.NewsType;
 import com.recycleforlife.service.NewsService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -26,9 +27,11 @@ public class NewsController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public FindNewsResponse findAll(
             @RequestParam(defaultValue = "#{T(java.time.LocalDate).now().minusMonths(1)}") final LocalDate from,
-            @RequestParam(defaultValue = "#{T(java.time.LocalDate).now()}") final LocalDate to
+            @RequestParam(defaultValue = "#{T(java.time.LocalDate).now()}") final LocalDate to,
+            @RequestParam(required = false) final NewsType type,
+            @RequestParam(required = false) final String city
     ) {
-        return service.findAll(from, to);
+        return service.findAll(from, to, type, city);
     }
 
     @GetMapping(path = "/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)

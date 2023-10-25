@@ -51,9 +51,9 @@ class NewsRepositoryTest extends AbstractRepositoryTest {
     void findByUuid() {
         jdbcTemplate.execute(
                 """
-                insert into news(id, uuid, "date", short_description, description, name, title)
-                values (1, '7efe7e67-031a-4a9e-a89c-c448a867d248', '2020-10-10', 'sd1', 'd1', 'n1', '1'),
-                       (2, '24ceafbd-ee80-4f10-8807-77f1932dafac', '2020-10-13', 'sd2', 'd2', 'n2', '2');
+                insert into news(id, uuid, "date", short_description, description, name, title, city, type)
+                values (1, '7efe7e67-031a-4a9e-a89c-c448a867d248', '2020-10-10', 'sd1', 'd1', 'n1', '1', 'a', 'EVENT'),
+                       (2, '24ceafbd-ee80-4f10-8807-77f1932dafac', '2020-10-13', 'sd2', 'd2', 'n2', '2', 'b', 'NEWS');
                 """
         );
 
@@ -70,9 +70,9 @@ class NewsRepositoryTest extends AbstractRepositoryTest {
     void findByPeriod_case1() {
         jdbcTemplate.execute(
                 """
-                insert into news(id, uuid, "date", short_description, description, name, title)
-                values (1, '7efe7e67-031a-4a9e-a89c-c448a867d248', '2020-10-10', 'sd1', 'd1', 'n1', '1'),
-                       (2, '24ceafbd-ee80-4f10-8807-77f1932dafac', '2020-10-13', 'sd2', 'd2', 'n2', '2');
+                insert into news(id, uuid, "date", short_description, description, name, title, city, type)
+                values (1, '7efe7e67-031a-4a9e-a89c-c448a867d248', '2020-10-10', 'sd1', 'd1', 'n1', '1', 'a', 'EVENT'),
+                       (2, '24ceafbd-ee80-4f10-8807-77f1932dafac', '2020-10-13', 'sd2', 'd2', 'n2', '2', 'b', 'NEWS');
                 """
         );
 
@@ -89,9 +89,9 @@ class NewsRepositoryTest extends AbstractRepositoryTest {
     void findByPeriod_case2() {
         jdbcTemplate.execute(
                 """
-                insert into news(id, uuid, "date", short_description, description, name, title)
-                values (1, '7efe7e67-031a-4a9e-a89c-c448a867d248', '2020-10-10', 'sd1', 'd1', 'n1', '1'),
-                       (2, '24ceafbd-ee80-4f10-8807-77f1932dafac', '2020-10-13', 'sd2', 'd2', 'n2', '2');
+                insert into news(id, uuid, "date", short_description, description, name, title, city, type)
+                values (1, '7efe7e67-031a-4a9e-a89c-c448a867d248', '2020-10-10', 'sd1', 'd1', 'n1', '1', 'a', 'EVENT'),
+                       (2, '24ceafbd-ee80-4f10-8807-77f1932dafac', '2020-10-13', 'sd2', 'd2', 'n2', '2', 'b', 'NEWS');
                 """
         );
 

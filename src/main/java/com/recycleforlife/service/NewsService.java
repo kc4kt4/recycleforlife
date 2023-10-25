@@ -2,6 +2,7 @@ package com.recycleforlife.service;
 
 import com.recycleforlife.domain.dto.FindNewsResponse;
 import com.recycleforlife.domain.dto.NewsDto;
+import com.recycleforlife.domain.dto.NewsType;
 import com.recycleforlife.domain.dto.SimpleNewsDto;
 import com.recycleforlife.domain.mapper.NewsDtoMapper;
 import com.recycleforlife.domain.model.News;
@@ -24,10 +25,14 @@ public class NewsService {
     @NotNull
     public FindNewsResponse findAll(
             final @NotNull LocalDate from,
-            final @NotNull LocalDate to
+            final @NotNull LocalDate to,
+            final NewsType type,
+            final String city
     ) {
         final List<SimpleNewsDto> news = newsRepository.findByPeriod(from, to)
                 .stream()
+                .filter(e -> type == null || type == e.getType())
+                .filter(e -> city == null || city.equals(e.getCity()))
                 .map(newsDtoMapper::toSimpleDto)
                 .toList();
 
