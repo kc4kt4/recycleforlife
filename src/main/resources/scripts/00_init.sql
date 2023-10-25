@@ -74,7 +74,7 @@ create table "introduce_info"
 (
     "id"           bigserial primary key,
     "uuid"         uuid unique not null,
-    "title"        date        not null,
+    "title"        text        not null,
     "subtitle"     text        not null,
     "description"  text        not null,
     "image_base64" text
